@@ -568,36 +568,163 @@ ul {
       line-height: 1.8;
       color: #666;
     } 
+
+
+      
+      /* Navbar Styles */
+      .custom-navbar {
+    background-color: #fff;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.custom-navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Reduced gap between the logo image and text */
+.custom-navbar .navbar-brand img {
+    height: 60px;
+    margin-right: 5px; /* Reduced gap from 10px to 5px */
+}
+
+.custom-navbar .navbar-brand span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.custom-navbar .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.custom-navbar .navbar-links li {
+    margin: 0;
+}
+
+.custom-navbar .navbar-links a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.custom-navbar .navbar-links a:hover {
+    color: #FF6A00; /* Vibrant orange on hover */
+}
+
+.custom-navbar .navbar-toggler {
+    display: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.custom-navbar .navbar-toggler .navbar-toggler-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    position: relative;
+}
+
+.custom-navbar .navbar-toggler .navbar-toggler-icon::before,
+.custom-navbar .navbar-toggler .navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    left: 0;
+}
+
+.custom-navbar .navbar-toggler .navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.custom-navbar .navbar-toggler .navbar-toggler-icon::after {
+    top: 8px;
+}
+
+/* Mobile and Tablet Styles */
+@media (max-width: 1024px) {
+    .custom-navbar .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-navbar .navbar-links.active {
+        display: flex;
+    }
+
+    .custom-navbar .navbar-links li {
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .custom-navbar .navbar-toggler {
+        display: block;
+    }
+
+    .custom-navbar .navbar-toggler .navbar-toggler-icon {
+        width: 35px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .custom-navbar .navbar-brand span {
+        font-size: 1.2rem; /* Adjust logo text size on mobile */
+    }
+
+    .custom-navbar .navbar-links a {
+        font-size: 1rem; /* Adjust font size of navbar links */
+    }
+}
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 70px; border-bottom: #000;">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="./WhatsApp_Image_2025-01-23_at_2.40.03_PM-removebg-preview.png" alt="Logo"> <!-- Replace 'logo-image.png' with your logo's path -->  <span style="font-size: 1.5rem; font-weight: bold; color: #000;">BusinessXstream</span>
-             
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto" style="margin-right: 30px;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./ragestr.html">Registration</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./about.html">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contect.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <nav class="custom-navbar">
+      <div class="container">
+          <a class="navbar-brand" href="#">
+              <img src="./WhatsApp_Image_2025-01-23_at_2.40.03_PM-removebg-preview.png" alt="Logo">
+              <span>BusinessXstream</span>
+          </a>
+          <button class="navbar-toggler" onclick="toggleNavbar()">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <ul class="navbar-links">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./ragestr.html">Registration</a></li>
+              <li><a href="./about.html">About us</a></li>
+              <li><a href="./contect.html">Contact</a></li>
+          </ul>
+      </div>
     </nav>
 
     <section class="py-3 py-md-5">
@@ -684,5 +811,11 @@ ul {
   </div>
 
 </footer>
+<script>// Toggle Navbar for mobile
+function toggleNavbar() {
+    const navbarLinks = document.querySelector('.navbar-links');
+    navbarLinks.classList.toggle('active');
+}
+</script>
     </body>
     </html>
